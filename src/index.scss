@@ -1,0 +1,75 @@
+@use './styles/variables' as vars;
+
+:root {
+  color: vars.$text;
+  background: vars.$bg;
+  font-family: vars.$font-sans;
+  font-size: 18px;
+  line-height: 1.45;
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 64rem) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: vars.$dark-text;
+    background: vars.$dark-bg;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: vars.$bg;
+  color: vars.$text;
+}
+
+#root {
+  width: min(1126px, 100%);
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2 {
+  font-family: vars.$font-heading;
+  font-weight: 500;
+  color: vars.$text-h;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 3vw, 3.5rem);
+  letter-spacing: -0.06em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}

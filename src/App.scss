@@ -1,17 +1,68 @@
+@use './styles/variables' as vars;
+
 .app {
-  font-family: system-ui, sans-serif;
-  padding: 2rem;
+  min-height: 100svh;
+  padding: vars.$space-xxl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: vars.$space-lg;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  color: vars.$text;
 
   h1 {
-    margin-bottom: 1rem;
+    margin: 0;
+    font-family: vars.$font-heading;
+    font-size: clamp(2.25rem, 3vw, 3rem);
+    line-height: 1.05;
+    color: vars.$text-h;
   }
 
   button {
-    padding: 0.5rem 1rem;
-    margin-right: 1rem;
+    appearance: none;
+    border: 1px solid vars.$accent-border;
+    border-radius: vars.$radius-md;
+    background: vars.$accent;
+    color: #ffffff;
+    font-weight: 600;
+    padding: vars.$space-md vars.$space-xl;
+    cursor: pointer;
+    transition: transform vars.$transition-fast, background vars.$transition-base, box-shadow vars.$transition-base;
+
+    &:hover,
+    &:focus-visible {
+      background: vars.$accent-strong;
+      transform: translateY(-1px);
+      outline: none;
+      box-shadow: 0 12px 24px -12px rgba(vars.$accent, 0.55);
+    }
   }
 
   input {
-    padding: 0.5rem;
+    width: min(100%, 360px);
+    border: 1px solid vars.$border;
+    border-radius: vars.$radius-sm;
+    padding: vars.$space-md;
+    font-family: vars.$font-sans;
+    color: vars.$text-h;
+    background: #ffffff;
+    transition: border-color vars.$transition-base, box-shadow vars.$transition-base;
+
+    &:focus {
+      outline: none;
+      border-color: vars.$accent;
+      box-shadow: 0 0 0 4px rgba(vars.$accent, 0.14);
+    }
+
+    &::placeholder {
+      color: vars.$muted;
+    }
+  }
+
+  @media (max-width: vars.$breakpoint-small) {
+    padding: vars.$space-lg;
   }
 }
