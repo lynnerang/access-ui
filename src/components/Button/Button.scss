@@ -1,0 +1,114 @@
+@use '../../styles/variables' as vars;
+
+.btn {
+  font-family: vars.$font-sans;
+  font-size: 1rem;
+  padding: vars.$space-sm vars.$space-xl;
+  border-radius: vars.$radius-xs;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color vars.$transition-base, 
+              border-color vars.$transition-base, 
+              color vars.$transition-base, 
+              transform vars.$transition-base, 
+              box-shadow vars.$transition-base;
+  font-weight: 500;
+
+  &:focus-visible {
+    outline: 2px solid vars.$accent;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.btn--disabled {
+    background: vars.$muted;
+    color: vars.$bg;
+    border-color: vars.$muted;
+    opacity: 0.6; 
+  }
+
+  &.btn--loading {
+    opacity: 0.6;
+    cursor: wait;
+
+    .btn__loading {
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .dots::after {
+      content: '';
+      display: inline-block;
+      width: 1ch;
+      text-align: left;
+      animation: dots 1.5s steps(3, end) infinite;
+    }
+  }
+}
+
+@keyframes dots {
+  0% {
+    content: '';
+  }
+  33% {
+    content: '.';
+  }
+  66% {
+    content: '..';
+  }
+  100% {
+    content: '...';
+  }
+}
+
+.btn--primary {
+  background: vars.$accent;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background: vars.$accent-strong;
+    transform: translateY(-1px);
+    box-shadow: vars.$shadow;
+  }
+}
+
+.btn--secondary {
+  background: transparent;
+  border-color: vars.$accent;
+  color: vars.$accent;
+
+  &:hover:not(:disabled) {
+    border-color: vars.$accent-strong;
+    color: vars.$accent-strong;
+    transform: translateY(-1px);
+    box-shadow: vars.$shadow;
+  }
+}
+
+.btn--tertiary {
+  background: transparent;
+  border: none;
+  color: vars.$accent;
+  padding: 0;
+  font-weight: 500;
+
+  &:hover {
+    color: vars.$accent-strong;
+    text-decoration: underline;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid vars.$accent;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    color: vars.$border;
+    text-decoration: none;
+    cursor: not-allowed;
+  }
+}
