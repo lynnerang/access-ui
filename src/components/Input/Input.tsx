@@ -24,7 +24,6 @@ export const Input = ({
   const inputId = id || useId();
   const errorId = error ? `${inputId}-error` : undefined;
   const helperId = helperText ? `${inputId}-helper` : undefined;
-  console.log(fullWidth)
 
   const describedBy = [errorId, helperId].filter(Boolean).join(' ') || undefined;
 
@@ -46,11 +45,12 @@ export const Input = ({
         required={required}
         aria-invalid={!!error}
         aria-describedby={describedBy}
+        aria-errormessage={error ? errorId : undefined}
         {...props}
       />
 
       {error ? (
-        <span id={errorId} className="input-error" role="alert">
+        <span id={errorId} className="input-error" aria-live="polite">
           {error}
         </span>
       ) : (
