@@ -1,9 +1,13 @@
 import "./App.scss";
-import { Button } from "@/components";
+import { Button, Input } from "@/components";
 
 function App() {
   return (
-    <main className="app">
+    <>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      <main id="main-content" className="app">
       <h1>Accessibility UI</h1>
 
       <div className="button-grid">
@@ -31,8 +35,23 @@ function App() {
         </section>
       </div>
 
-      <input aria-label="Name input" placeholder="Enter your name" />
+      <div className="input-grid">
+        <section>
+          <h2>Input Variants</h2>
+          <Input label="Default Input" placeholder="Enter something" />
+          <Input label="Input with Helper" helperText="This is some helpful text" placeholder="Enter something" />
+          <Input label="Input with Error" error="This is error text" placeholder="Enter something" />
+        </section>
+
+        <section>
+          <h2>Input States</h2>
+          <Input label="Disabled Input" disabled placeholder="Disabled" />
+          <Input label="Required Input" required placeholder="Enter something" />
+          <Input label="Full Width Input" fullWidth placeholder="Enter something" />
+        </section>
+      </div>
     </main>
+    </>
   );
 }
 
