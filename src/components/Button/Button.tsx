@@ -34,7 +34,11 @@ export const Button = ({
         <>
           <span className="btn__loading">
             {loadingText}
-            <span className="dots" aria-hidden="true"></span>
+            <span className="dots" aria-hidden="true">
+              <span>.</span>
+              <span>.</span>
+              <span>.</span>
+            </span>
           </span>
           <span id={loadingId} className="sr-only">
             Please wait while the action is being processed.

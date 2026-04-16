@@ -43,24 +43,23 @@
     }
   }
 
-  input {
-    width: min(100%, 360px);
-    border: 1px solid vars.$border;
-    border-radius: vars.$radius-sm;
-    padding: vars.$space-md;
-    font-family: vars.$font-sans;
-    color: vars.$text-h;
-    background: #ffffff;
-    transition: border-color vars.$transition-base, box-shadow vars.$transition-base;
+  .input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: vars.$space-xl;
+    width: 100%;
+    margin-top: vars.$space-xl;
 
-    &:focus {
-      outline: none;
-      border-color: vars.$accent;
-      box-shadow: 0 0 0 4px rgba(vars.$accent, 0.14);
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: vars.$space-md;
     }
 
-    &::placeholder {
-      color: vars.$muted;
+    h2 {
+      margin: 0 0 vars.$space-md 0;
+      font-size: 1.125rem;
+      color: vars.$text-h;
     }
   }
 

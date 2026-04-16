@@ -1,21 +1,22 @@
-@use '../../styles/variables' as vars;
+@use '@/styles/variables' as vars;
 
 .btn {
   font-family: vars.$font-sans;
   font-size: 1rem;
   padding: vars.$space-sm vars.$space-xl;
-  border-radius: vars.$radius-sm;
+  border-radius: vars.$radius-xs;
   border: 2px solid transparent;
   cursor: pointer;
+  font-weight: 500;
+  min-height: 44px;
+  min-width: 44px;
+
   transition: background-color vars.$transition-base,
               border-color vars.$transition-base,
               color vars.$transition-base,
               transform vars.$transition-base,
               box-shadow vars.$transition-base,
               opacity vars.$transition-base;
-  font-weight: 500;
-  min-height: 44px;
-  min-width: 44px;
 
   &:focus-visible {
     outline: 2px solid vars.$accent;
@@ -24,6 +25,7 @@
 
   &:disabled {
     cursor: not-allowed;
+    opacity: 0.7;
   }
 
   &.btn--loading {
@@ -33,30 +35,46 @@
     .btn__loading {
       display: inline-flex;
       align-items: center;
-    }
-    
-    .dots::after {
-      content: '';
-      display: inline-block;
-      width: 1ch;
-      text-align: left;
-      animation: dots 1.5s steps(3, end) infinite;
+      gap: 4px;
     }
   }
 }
 
-@keyframes dots {
-  0% {
-    content: '';
+.dots {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.dots span {
+  opacity: 0;
+  animation: blink 1.4s infinite;
+}
+
+.dots span:nth-child(1) { animation-delay: 0s; }
+.dots span:nth-child(2) { animation-delay: 0.2s; }
+.dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 20% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: background-color vars.$transition-reduced,
+                border-color vars.$transition-reduced,
+                color vars.$transition-reduced,
+                opacity vars.$transition-reduced;
   }
-  33% {
-    content: '.';
+
+  .btn:hover {
+    transform: none;
   }
-  66% {
-    content: '..';
-  }
-  100% {
-    content: '...';
+
+  .dots span {
+    animation: none;
+    opacity: 1;
   }
 }
 
@@ -84,8 +102,7 @@
 
   &.btn--disabled {
     background: vars.$muted;
-    border-color: vars.$muted;
-    opacity: 0.7;
+    opacity: 0.65;
   }
 }
 
@@ -104,27 +121,24 @@
   &.btn--disabled {
     color: vars.$muted;
     border-color: vars.$muted;
-    opacity: 0.7;
+    opacity: 0.65;
   }
 }
 
 .btn--tertiary {
   background: transparent;
-  border: none;
   color: vars.$accent;
-  font-weight: 500;
-  padding: 0;
+  padding: vars.$space-sm vars.$space-xs;
 
   &:hover:not(:disabled) {
     color: vars.$accent-strong;
     text-decoration: underline;
     transform: translateY(-1px);
   }
-  
+
   &.btn--disabled {
     color: vars.$muted;
-    text-decoration: none;
-    opacity: 0.7;
+    opacity: 0.65;
   }
 
   &:focus-visible {

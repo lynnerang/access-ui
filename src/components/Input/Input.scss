@@ -1,0 +1,83 @@
+@use '@/styles/variables' as vars;
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-xs;
+  align-items: flex-start;
+  text-align: left;  
+
+  &.input-wrapper--full-width .input {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+.input-label {
+  font-family: vars.$font-sans;
+  font-size: 0.85rem;
+  color: vars.$text-h;
+
+  &.input-label--required::after {
+    content: ' *';
+    color: vars.$accent;
+  }
+}
+
+.input {
+  font-family: vars.$font-sans;
+  font-size: 1rem;
+  padding: vars.$space-xs vars.$space-sm;
+  border: 1px solid vars.$border;
+  border-radius: vars.$radius-xs;
+  background: vars.$bg;
+  color: vars.$text-h;
+  transition: border-color vars.$transition-base,
+              box-shadow vars.$transition-base,
+              background-color vars.$transition-base;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: border-color vars.$transition-reduced,
+                box-shadow vars.$transition-reduced,
+                background-color vars.$transition-reduced;
+  }
+  min-height: 44px;
+
+  &::placeholder {
+    color: vars.$muted;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: vars.$accent;
+    box-shadow: 0 0 0 3px rgba(vars.$accent, 0.2);
+  }
+
+  &:disabled {
+    color: vars.$bg;
+    border-color: rgba(vars.$border, 0.6);
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  &.input--error {
+    border-color: #dc2626;
+
+    &:focus-visible {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(#dc2626, 0.2);
+    }
+  }
+}
+
+.input-error {
+  font-family: vars.$font-sans;
+  font-size: 0.875rem;
+  color: #dc2626;
+}
+
+.input-helper {
+  font-family: vars.$font-sans;
+  font-size: 0.875rem;
+  color: vars.$text;
+}
