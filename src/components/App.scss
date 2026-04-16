@@ -21,6 +21,28 @@
     color: vars.$text-h;
   }
 
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: vars.$space-xl;
+    width: 100%;
+    margin-top: vars.$space-lg;
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: vars.$space-md;
+      align-items: flex-start;
+    }
+
+    h2 {
+      margin: 0 0 vars.$space-sm;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: vars.$text-h;
+    }
+  }
+
   input {
     width: min(100%, 360px);
     border: 1px solid vars.$border;
