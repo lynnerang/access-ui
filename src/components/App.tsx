@@ -9,8 +9,10 @@ function App() {
       <Button>Default</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="tertiary">Tertiary</Button>
+      <Button disabled>Disabled Primary</Button>
+      <Button variant="secondary" disabled>Disabled Secondary</Button>
+      <Button variant="tertiary" disabled>Disabled Tertiary</Button>
       <Button isLoading>Loading</Button>
-      <Button disabled>Disabled</Button>
 
       <input
         aria-label="Name input"
