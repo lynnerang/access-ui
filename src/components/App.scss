@@ -1,4 +1,4 @@
-@use './styles/variables' as vars;
+@use '../styles/variables' as vars;
 
 .app {
   min-height: 100svh;
@@ -19,26 +19,6 @@
     font-size: clamp(2.25rem, 3vw, 3rem);
     line-height: 1.05;
     color: vars.$text-h;
-  }
-
-  button {
-    appearance: none;
-    border: 1px solid vars.$accent-border;
-    border-radius: vars.$radius-md;
-    background: vars.$accent;
-    color: #ffffff;
-    font-weight: 600;
-    padding: vars.$space-md vars.$space-xl;
-    cursor: pointer;
-    transition: transform vars.$transition-fast, background vars.$transition-base, box-shadow vars.$transition-base;
-
-    &:hover,
-    &:focus-visible {
-      background: vars.$accent-strong;
-      transform: translateY(-1px);
-      outline: none;
-      box-shadow: 0 12px 24px -12px rgba(vars.$accent, 0.55);
-    }
   }
 
   input {
