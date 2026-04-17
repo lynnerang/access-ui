@@ -40,7 +40,7 @@ export const Button = ({
               <span>.</span>
             </span>
           </span>
-          <span id={loadingId} className="sr-only">
+          <span id={loadingId} className="skip-link">
             Please wait while the action is being processed.
           </span>
         </>

@@ -14,8 +14,8 @@
   transition: background-color vars.$transition-base,
               border-color vars.$transition-base,
               color vars.$transition-base,
-              transform vars.$transition-base,
-              box-shadow vars.$transition-base,
+              transform 80ms ease-out,
+              box-shadow 80ms ease-out,
               opacity vars.$transition-base;
 
   &:focus-visible {
@@ -37,6 +37,11 @@
       align-items: center;
       gap: 4px;
     }
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: none;
   }
 }
 
@@ -72,6 +77,10 @@
     transform: none;
   }
 
+  .btn:active:not(:disabled) {
+    transform: none;
+  }
+
   .dots span {
     animation: none;
     opacity: 1;
@@ -90,11 +99,26 @@
   border: 0;
 }
 
+.skip-link {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 .btn--primary {
   background: vars.$accent;
   color: white;
 
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled):not(:active) {
     background: vars.$accent-strong;
     transform: translateY(-1px);
     box-shadow: vars.$shadow;
@@ -111,7 +135,7 @@
   border-color: vars.$accent;
   color: vars.$accent;
 
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled):not(:active) {
     border-color: vars.$accent-strong;
     color: vars.$accent-strong;
     transform: translateY(-1px);
@@ -130,7 +154,7 @@
   color: vars.$accent;
   padding: vars.$space-sm vars.$space-xs;
 
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled):not(:active) {
     color: vars.$accent-strong;
     text-decoration: underline;
     transform: translateY(-1px);
