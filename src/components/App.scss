@@ -17,15 +17,17 @@
     font-size: vars.$heading-1;
     line-height: 1.05;
   }
-
   
   h2 {
-    margin: 0 0 vars.$space-lg 0;
     font-size: vars.$heading-2;
   }
   
   h3 {
     font-size: vars.$heading-3;
+  }
+
+  h4 {
+    font-size: vars.$heading-4;
   }
   
   .component-section {
@@ -66,6 +68,20 @@
       display: grid;
       width: 100%;
       grid-template-columns: 1fr;
+    }
+  }
+
+  .heading-examples {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$space-md;
+    width: 100%;
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: vars.$space-md;
+      align-items: flex-start;
     }
   }
 
