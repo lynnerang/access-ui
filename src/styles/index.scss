@@ -55,9 +55,11 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4 {
   font-family: vars.$font-heading;
-  font-weight: 500;
+  font-weight: 400;
   color: vars.$text-h;
   margin: 0;
 }

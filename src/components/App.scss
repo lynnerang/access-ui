@@ -14,23 +14,23 @@
   color: vars.$text;
 
   h1 {
-    margin: 0;
-    font-family: vars.$font-heading;
     font-size: vars.$heading-1;
     line-height: 1.05;
-    color: vars.$text-h;
   }
 
+  
+  h2 {
+    margin: 0 0 vars.$space-lg 0;
+    font-size: vars.$heading-2;
+  }
+  
+  h3 {
+    font-size: vars.$heading-3;
+  }
+  
   .component-section {
     width: 100%;
     margin-bottom: vars.$space-xl;
-  }
-
-  .component-section > h2 {
-    margin: 0 0 vars.$space-lg 0;
-    font-size: vars.$heading-2;
-    font-weight: 700;
-    color: vars.$text-h;
   }
 
   .button-grid {
@@ -44,13 +44,6 @@
       flex-direction: column;
       gap: vars.$space-md;
       align-items: flex-start;
-    }
-
-    h3 {
-      margin: 0;
-      font-size: vars.$heading-3;
-      font-weight: 600;
-      color: vars.$text-h;
     }
   }
 
@@ -67,13 +60,6 @@
       flex-direction: column;
       gap: vars.$space-md;
       align-items: flex-start;
-    }
-
-    h3 {
-      margin: 0;
-      font-size: vars.$heading-3;
-      font-weight: 600;
-      color: vars.$text-h;
     }
 
     @media (max-width: vars.$breakpoint-small) {
