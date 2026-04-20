@@ -60,6 +60,19 @@ function App() {
             </section>
           </div>
         </section>
+
+        <section className="component-section">
+          <h2>Headings</h2>
+
+          <div className="heading-examples">
+            <section>
+              <h1>Heading 1 - Main Page Title</h1>
+              <h2>Heading 2 - Section Title</h2>
+              <h3>Heading 3 - Subsection Title</h3>
+              <h4>Heading 4 - Component Title</h4>
+            </section>
+          </div>
+        </section>
       </main>
     </>
   );
